@@ -6,6 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+    public $timestamps = false;
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'id',
+        'title',
+        'coursecover',
+        'content',
+        'material_id',
+    ];
+
     public function group() { 
         return $this->belongsToMany(Group::class); 
     } 
@@ -14,4 +26,3 @@ class Course extends Model
         return $this->belongsTo(Material::class); 
     } 
 }
-
